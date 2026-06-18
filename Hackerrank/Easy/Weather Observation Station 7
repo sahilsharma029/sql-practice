@@ -1,0 +1,13 @@
+#Brute force query
+
+select distinct city from station
+where city like '%a' or
+city like '%e' or
+city like '%i' or
+city like '%o' or
+city like '%u'
+
+# optimal query - Regular expresion - REGEXP 
+
+select distinct city from station
+where city regexp '[aeiou]$'
