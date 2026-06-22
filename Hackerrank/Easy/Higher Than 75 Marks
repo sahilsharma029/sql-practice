@@ -1,0 +1,3 @@
+SELECT NAME FROM STUDENTS
+where marks > 75 
+ORDER BY right(name,3), id;
