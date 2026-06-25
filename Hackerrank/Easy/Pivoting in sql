@@ -1,0 +1,30 @@
+#pivoting in sql
+
+create table employee(
+  emp_id int,
+  salary_component_type varchar(20),
+  val int
+);
+
+insert into employee(emp_id,salary_component_type,val) 
+values 
+(1,'salary',10000),
+(1,'bonus',5000), 
+(1,'hike_percent',15), 
+(2,'salary',10000),
+(2,'bonus',5000), 
+(2,'hike_percent',10),
+(3,'salary',10000),
+(3,'bonus',5000), 
+(3,'hike_percent',10);
+
+-- select * from employee;
+
+
+select 
+emp_id,
+sum(case when salary_component_type = 'salary' then val end) as salary,
+sum(case when salary_component_type = 'bonus' then val end) as bonus,
+sum(case when salary_component_type = 'hike_percent' then val end) as hike_percent
+from employee
+group by emp_id
